@@ -6,6 +6,7 @@ import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.lang.reflect.Array;
+import java.util.ArrayList;
 import java.util.Arrays;
 
 public class Ejercicio3 {
@@ -21,6 +22,8 @@ public class Ejercicio3 {
 		
 		int contador=0;
 		
+		ArrayList<String> palabras = new ArrayList<String>();
+		
 		int principio=0;
 
 		try {
@@ -34,8 +37,16 @@ public class Ejercicio3 {
 				
 					for(int i =0;i<linea.length();i++) {
 						
-						if(Character.toUpperCase(linea.charAt(i))) {
-							
+						if(Character.toUpperCase(linea.charAt(i))==linea.charAt(i)) {
+							if(prueba.length()==0) {
+								prueba+=linea.charAt(i);
+							} else {
+								palabras.add(prueba);
+								prueba="";
+								prueba+=linea.charAt(i);
+							}
+						} else {
+							prueba+=linea.charAt(i);
 						}
 					}
 					
@@ -48,6 +59,7 @@ public class Ejercicio3 {
 				linea = br.readLine();
 			}
 			
+			bw = new BufferedWriter(FileWriter())
 			
 
 		} catch (IOException e) {

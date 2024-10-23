@@ -11,7 +11,7 @@ public class EjercicioA {
 	public static void main(String[] args) {
 		// Se crea un objeto File que representa la carpeta personal en la ruta
 		// especificada
-		File dir = new File("C:\\Users\\diglesias\\CarpetaPersonal");
+		File dir = new File("C:\\Users\\diglesias");
 
 		// Variable para almacenar cada línea leída del archivo carpeta.txt
 		String linea = "";
@@ -21,12 +21,6 @@ public class EjercicioA {
 
 		// Variable para leer el archivo
 		BufferedReader lec = null;
-
-		// Verifica si la carpeta personal no existe
-		if (!dir.exists()) {
-			// Si no existe, se crea la carpeta
-			dir.mkdir(); 
-		}
 
 		try {
 			// Se inicializa el BufferedReader para leer el archivo "carpeta.txt", para eso pondremos la ruta absoluta donde se encuentra el archivo

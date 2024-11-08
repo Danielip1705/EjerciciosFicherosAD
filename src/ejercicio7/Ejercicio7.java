@@ -1,10 +1,11 @@
 package ejercicio7;
 
+import java.io.BufferedWriter;
+import java.io.File;
 import java.io.FileNotFoundException;
+import java.io.FileWriter;
 import java.io.IOException;
 import java.io.RandomAccessFile;
-import java.lang.foreign.ValueLayout;
-import java.util.Random;
 
 public class Ejercicio7 {
 
@@ -23,16 +24,32 @@ public class Ejercicio7 {
 		RandomAccessFile lec = null;
 		RandomAccessFile esc = null;
 
+		BufferedWriter bw = null;
+		
+		File archivotxt = new File(
+				"C:\\Users\\diglesias\\eclipse-workspace\\EjercicioFicheros\\src\\ejercicio7\\lecturaAbcNum.txt");
+		File escritura = new File(
+				"C:\\Users\\diglesias\\eclipse-workspace\\EjercicioFicheros\\src\\ejercicio7\\escrituraAbcNum.txt");
 		try {
+			bw = new BufferedWriter(new FileWriter(archivotxt));
+			bw.write("a1");
+			bw.newLine();
+			bw.write("b2");
+			bw.newLine();
+			bw.write("c3");
+			bw.newLine();
+			bw.write("d4");
+			bw.newLine();
+			bw.write("e5");
+			bw.flush();
+			bw.close();
+			bw = new BufferedWriter(new FileWriter(escritura));
+			bw.close();
 			// Abrir el archivo de lectura en modo solo lectura ("r")
-			lec = new RandomAccessFile(
-					"C:\\Users\\diglesias\\eclipse-workspace\\EjercicioFicheros\\src\\ejercicio7\\lecturaAbcNum.txt",
-					"r");
+			lec = new RandomAccessFile(archivotxt, "r");
 
 			// Abrir el archivo de escritura en modo lectura y escritura ("rw")
-			esc = new RandomAccessFile(
-					"C:\\Users\\diglesias\\eclipse-workspace\\EjercicioFicheros\\src\\ejercicio7\\escrituraAbcNum.txt",
-					"rw");
+			esc = new RandomAccessFile(escritura, "rw");
 
 			// Obtener la longitud total del archivo de lectura
 			longitudLec = lec.length();
